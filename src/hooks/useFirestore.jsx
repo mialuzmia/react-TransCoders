@@ -1,6 +1,8 @@
 import { useReducer } from "react"
 import { db, timestamp } from '../firebase/config'
 
+import { storage } from "../firebase/config"
+
 let initialState = {
     document: null,
     isPending: false, 
@@ -13,11 +15,11 @@ const firestoreReducer = (state, action) => {
         case 'IS_PENDING':
             return { isPending: true, document: null, success: null, error: null }
         case 'ADDED_DOCUMENT':
-            return { isPending: false, document: action.payload, success: true, error: null }
+            return { isPending: false, document: action.payload, success: 'Documento adcionado com sucesso', error: null }
         case 'DELETED_DOCUMENT':
-            return { isPending: false, document: null, success: true, error: null }
+            return { isPending: false, document: null, success: 'Documento deletado com sucesso', error: null }
         case 'UPDATED_DOCUMENT':
-            return { isPending: false, document: action.payload, success: true, error: null  }
+            return { isPending: false, document: action.payload, success: 'Perfil atualizado com sucesso', error: null  }
         case 'ERROR':
             return { isPending: false, document: null, success: false, error: action.payload }
         default:
@@ -28,7 +30,7 @@ const firestoreReducer = (state, action) => {
 export const usefirestore = (collection) => {
     const [response, dispatch] = useReducer(firestoreReducer, initialState)
     
-    // collection ref
+    // collection refq
     const ref = db.collection(collection)
 
     // add a document
@@ -48,34 +50,51 @@ export const usefirestore = (collection) => {
     }
 
     // delete a document
-    const deleteDocument = async (id) => {
-        dispatch({ type: 'IS_PENDIND' })
+  const deleteDocument = async (id) => {
+    dispatch({ type: 'IS_PENDING' });
 
-        try {
-            const deletedDocument = await ref.doc(id).delete()
+    try {
+      await ref.doc(id).delete();
 
-            dispatch({ type: 'DELETED_DOCUMENT', payload: deletedDocument })
-        } catch (err) {
-            dispatch({ type: 'ERROR', payload: 'Could not delete.' })
-        }
+      dispatch({ type: 'DELETED_DOCUMENT' });
+    } catch (err) {
+      dispatch({ type: 'ERROR', payload: 'Could not delete.' });
     }
+  };
 
-    // update a documents
-    const updateDocument = async (id, updates) => {
-        dispatch({ type: 'IS_PENDING' })
+  // update a document
+  const updateDocument = async (id, updates) => {
+    dispatch({ type: 'IS_PENDING' });
 
-        try {
-            const updatedDocument= await ref.doc(id).update(updates)
+    try {
+      await ref.doc(id).update(updates);
 
-            dispatch({ type: 'UPDATED_DOCUMENT', payload: updatedDocument })
+      dispatch({ type: 'UPDATED_DOCUMENT' });
 
-            return updateDocument
+      return true;
+    } catch (err) {
 
-        } catch(err) {
-            dispatch({ type: 'ERROR', payload: err.message })
-            return null
-        }
+      dispatch({ type: 'ERROR', payload: 'Não foi possivel atualizar o perfil, tente novamente.' });
+
+      console.log(err.message);
+      return false;
     }
+  };
 
-    return { addDocument, deleteDocument, updateDocument, response }
-}
+  return { addDocument, deleteDocument, updateDocument, response };
+};
+
+export const uploadProfilePhoto = async (userId, profilePhoto) => {
+    try {
+      const storageRef = storage.ref();
+      const fileRef = storageRef.child(`profile-photos/${userId}/profilePhoto`);
+  
+      const snapshot = await fileRef.put(profilePhoto);
+      const downloadURL = await snapshot.ref.getDownloadURL();
+  
+      return downloadURL;
+    } catch (error) {
+      console.error('Error uploading profile photo:', error);
+      return null;
+    }
+  };

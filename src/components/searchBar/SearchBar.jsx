@@ -1,5 +1,7 @@
 import './searchBar.css'
 
+import searchIcon from '../../assets/search.svg'
+
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -26,7 +28,7 @@ const SearchBar = () => {
                     value={inputValue}
                     required
                 />
-                <button className='btn'>Search</button>
+                <button className='search-btn'><img src={searchIcon} alt="" /></button>
             </form>
         </div>
   )

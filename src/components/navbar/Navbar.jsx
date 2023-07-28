@@ -4,12 +4,18 @@ import logo from '../../assets/logo.svg'
 
 // hooks
 import { Link } from 'react-router-dom'
+import { useAuthContext } from '../../hooks/useAuthContext'
+import { useLogout } from '../../hooks/useLogout'
 
 
 // components
 import SearchBar from '../searchBar/SearchBar'
+import Button from '../button/Button'
 
 const Navbar = () => {
+  const { user } = useAuthContext()
+  const { logout, isPending } = useLogout()
+  
 
   return (
         <nav className='navbar__container'>
@@ -20,31 +26,29 @@ const Navbar = () => {
             <div className="navbar__links-container">
             <Link to='/'>Home</Link>
             <Link to='/devs'>Devs</Link>
+            {user && <Link to='/profile'>Profile</Link>}
+            
+
 
             </div>
-            {/* <SearchBar /> */}
 
             <div className='navbar__buttons-container'>
+              <SearchBar />
               
-              <Link to='/login'>
-                <button className='button'>
-                  <span className="shadow"></span>
-                  <span className="edge"></span>
-                  <span className="front text navbar__login-button"> Login</span>
-                </button> 
-                {/* <button className='btn navbar__btn'>Cadastro</button>      */}
-              </Link>
+             {!user && <Link to='/signup'>
+                <Button text='Cadastro'/>
+              </Link>}
 
-              <Link to='/signup'>
-                <button className='button'>
-                  <span className="shadow"></span>
-                  <span className="edge"></span>
-                  <span className="front text"> Cadastro</span>
-                </button> 
-                {/* <button className='btn navbar__btn'>Cadastro</button>      */}
-              </Link>
+              {user && (
+                  <>
+                    {!isPending &&<Button text='Logout'  onClick={logout}/>}
+                    {isPending &&<Button text='Login out...' disabled={true} />}
+                  </>
+              )}
 
             </div>
+
+
           
         </nav>
  

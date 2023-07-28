@@ -1,17 +1,18 @@
 .navbar__container {
     width: 100%;
-    color: #fff;
+    max-width: 100%;
+    color: var(--text-color);
     height: 10vh;
-    position: fixed;
+    /* position: fixed; */
     background-color: var(--bg-color);
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     padding: 0 1rem;
   }
   .navbar__logo {
     width: 20%;
-    margin-right: auto;
+    /* margin-right: auto; */
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -33,9 +34,9 @@
 
 
   .navbar__buttons-container{
-    margin-left: auto;
+    /* margin-left: auto; */
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 
   }
 

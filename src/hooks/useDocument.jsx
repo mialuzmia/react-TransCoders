@@ -9,27 +9,26 @@ export const useDocument = (collection, id) => {
 
     // realtime data for document
     useEffect(() => {
-        const ref = db.collection(collection).doc(id)
-
-        const unsub = ref.onSnapshot((snapshot) => {
-
-            if (snapshot.data()) {
-                setDocument({...snapshot.data(), id: snapshot.id})
-                setError(null) 
-            }else{
-                setError('no such project exists')
-            }
-
-        }, (err) => {
-            console.log(err.message)
-            setError('Failed to get document')
-        })
-
-        return () => unsub()
+        const ref = db.collection(collection).doc(id);
     
-        
-    }, [document, id])
-
-    return { document, error }
-
-}
+        const unsub = ref.onSnapshot(
+          (snapshot) => {
+            if (snapshot.exists) {
+              setDocument({ ...snapshot.data(), id: snapshot.id });
+              setError(null);
+            } else {
+              setDocument(null);
+              setError('Document does not exist.');
+            }
+          },
+          (err) => {
+            console.log(err.message);
+            setError('Failed to get document.');
+          }
+        );
+    
+        return () => unsub();
+      }, [id]);
+    
+      return { document, error };
+    };

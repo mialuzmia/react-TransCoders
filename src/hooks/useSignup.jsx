@@ -16,7 +16,7 @@ export const useSignup = () => {
     
     const { dispatch } = useAuthContext()
 
-    const signup = async (email, password, displayName, thumbnail) => {
+    const signup = async (email, password, displayName, profilePhoto) => {
         setError(null)
         setSuccess(null)
         setIsPending(true)
@@ -33,9 +33,9 @@ export const useSignup = () => {
                 setSuccess('Usuário criado com sucesso.')
             }
 
-            // upload user thumbnail
-            const uploadPath = `thumbnails/${response.user.uid}/${thumbnail.name}`
-            const img = await storage.ref(uploadPath).put(thumbnail)
+            // upload profilePhoto
+            const uploadPath = `profile-photos/${response.user.uid}/profilePhoto`
+            const img = await storage.ref(uploadPath).put(profilePhoto)
             const imgUrl = await img.ref.getDownloadURL()
 
 
@@ -45,9 +45,17 @@ export const useSignup = () => {
 
             // create a user doc
             await db.collection('users').doc(response.user.uid).set({
-                online: true,
                 displayName: displayName, 
-                photoURL: imgUrl
+                lowerCaseName: displayName.toLowerCase(),
+                photoURL: imgUrl,
+                bio: '',
+                emailContato: null,
+                linkedinURL: null,
+                githubURL: null,
+                telefone: null,
+                languages: [],
+                fazFreelance: false,
+                buscaEmpregoComo: ''                
             })
 
             //dispatch login action

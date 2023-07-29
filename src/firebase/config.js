@@ -6,12 +6,12 @@ import 'firebase/compat/storage'
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCCh6zI9nwLf_GF6aFMoXYsQBa7odDuldk",
-    authDomain: "trans-coders.firebaseapp.com",
-    projectId: "trans-coders",
-    storageBucket: "trans-coders.appspot.com",
-    messagingSenderId: "456265345353",
-    appId: "1:456265345353:web:8da2480e35a1b19b37d298"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
   }
 
 

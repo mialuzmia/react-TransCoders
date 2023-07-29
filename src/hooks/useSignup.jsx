@@ -52,6 +52,7 @@ export const useSignup = () => {
                 emailContato: null,
                 linkedinURL: null,
                 githubURL: null,
+                githubUsername: null,
                 telefone: null,
                 languages: [],
                 fazFreelance: false,

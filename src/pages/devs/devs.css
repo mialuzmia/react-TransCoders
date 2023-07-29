@@ -1,0 +1,34 @@
+.devs__page-container {
+    width: 100%;
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.devs__page-title{
+    color: var(--text-color);
+}
+
+.devs__list-container {
+    width: 80%;
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr)); 
+    grid-gap: 1.5rem; 
+    padding: 1.5rem; 
+    /* background: rgba(17, 25, 45, 0.45);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.7px);
+    -webkit-backdrop-filter: blur(0.7px);
+    border: 1px solid rgba(17, 25, 45, 0.14); */
+}
+
+
+
+
+

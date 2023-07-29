@@ -2,8 +2,33 @@
     width: 100%;
     min-height:100vh;
 
-    background-image: url('../src/assets/galaxy1.jpg');
-    background-size: cover;
+    background-image: url('../src/assets/galaxy4.jpg');
     background-repeat: no-repeat;
+
+    /* Set the background size to cover the entire container */
+  background-size: cover;
+
+  /* Set the background position to center */
+  background-position: center;
     
 }
+
+
+/* styles.css or your preferred CSS file */
+.app__content{
+    /* Add padding or margin to adjust the spacing between the content and the background image */
+    
+  
+    /* Set the maximum width to control the width of the content container */
+    max-width: 100%;
+  
+    /* Center the content container horizontally */
+    margin: 0 auto;
+  
+    /* Add a background color or set it to transparent to see the background image through the content container */
+    background-color: transparent;
+  
+    /* Set the content container to be scrollable when the content overflows */
+    overflow-y: auto;
+    height: 100vh; /* Adjust the height as needed */
+  }

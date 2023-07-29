@@ -1,0 +1,87 @@
+
+.devcard__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* min-height: 250px; */
+
+    max-height: 300px;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.devcard__container:hover {
+
+    transform: translateY(-20px); 
+}
+
+.devcard__container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    border-radius: 1.2em;
+}
+
+.devcard__container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    filter: blur(15px);
+}
+
+.devcard__container .devcard__content-container{
+    background-color: #2B2730;
+    border-radius: 1.2em;
+
+    position: relative;
+    z-index: 20;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: var(--text-color);
+
+}
+
+.devcard__content{
+    width: 90%;
+    height: 90%;
+    margin: 1rem;
+}
+
+.devcard__title{
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.devcard__text{
+    font-size: 1.1rem;
+    font-family: minecraft;
+}
+
+.devcard__img{
+    max-width: 100px;
+
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}

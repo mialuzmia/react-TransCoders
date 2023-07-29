@@ -16,13 +16,14 @@ import { Link } from 'react-router-dom'
 
 
 const Profile = () => {
-  const [emailContato, setEmailContato] = useState('');
+  const [emailContato, setEmailContato] = useState('')
   const [displayName, setDisplayName] = useState('')
   const [profilePhoto, setProfilePhoto] = useState(null)
   const [profilePhotoError, setProfilePhotoError] = useState(null)
   const [bio, setBio] = useState('')
   const [linkedinURL, setLinkedinURL] = useState('')
   const [githubURL, setGithubURL] = useState('')
+  const [githubUsername, setGithubUsername] = useState('')
   const [languages, setLanguages] = useState([])
 
   const [updates, setUpdates] = useState({})
@@ -82,6 +83,9 @@ const Profile = () => {
         if (githubURL && githubURL !== document.githubURL) {
           newUpdates.githubURL = githubURL;
         }
+        if (githubUsername && githubUsername !== document.githubUsername) {
+          newUpdates.githubUsername = githubUsername;
+        }
     
         if (languages.length > 0 && JSON.stringify(languages) !== JSON.stringify(document.languages)) {
           newUpdates.languages = languages;
@@ -91,7 +95,7 @@ const Profile = () => {
       }
     
       
-    }, [displayName, bio, emailContato, linkedinURL, githubURL, languages])
+    }, [displayName, bio, emailContato, linkedinURL, githubURL, languages, githubUsername])
 
 
   
@@ -99,7 +103,6 @@ const Profile = () => {
     e.preventDefault()
 
     try {
-      // Upload the profile photo if it has been changed
       if (profilePhoto) {
         const profilePhotoURL = await uploadProfilePhoto(user.uid, profilePhoto);
         if (profilePhotoURL) {
@@ -110,7 +113,6 @@ const Profile = () => {
       }
 
     await updateDocument(user.uid, updates)
-    console.log(updates)
 
     setDisplayName('')
     setBio('')
@@ -118,10 +120,11 @@ const Profile = () => {
     setGithubURL('')
     setLinkedinURL('')
     setLanguages([])
+    setGithubUsername('')
     
   }catch (error) {
     console.error('Error updating profile:', error);
-    // Handle error here if needed
+
   }
 }
 
@@ -265,6 +268,15 @@ const Profile = () => {
             type="text" 
             onChange={(e) => setGithubURL(e.target.value)} 
             value={githubURL}
+          />
+        </label>
+
+        <label>
+          <span>Github (username):</span>
+          <input
+            type="text" 
+            onChange={(e) => setGithubUsername(e.target.value)} 
+            value={githubUsername}
           />
         </label>
 

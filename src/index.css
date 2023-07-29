@@ -20,6 +20,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--text-color);
+
 }
 
 #root{
@@ -40,12 +42,12 @@ input, textarea {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    background: rgba(17, 25, 45, 0.48);
+    background: rgba(17, 25, 45, 0.83);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(12.5px);
-    -webkit-backdrop-filter: blur(12.5px);
-    border: 1px solid rgba(17, 25, 45, 0.48);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(17, 25, 45, 1);
   }
 
   .error {

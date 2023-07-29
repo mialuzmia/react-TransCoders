@@ -1,10 +1,8 @@
+![](./src/assets/logo.svg)
 
-# TransCoders
-
-
-![](./src/assets/home-print.png)
 
 # Projeto TransCoders
+<img src="./src/assets/home-print.png" />
 
 Olá! esse é o projeto TransCoders. É meu projeto final do Bootcamp de Front-End da Reprograma. Ele foi feito pensando em facilitar a entrada de devs trans no mercado de trabalho através de um portal de divulgação. Quero muito levar esse projeto para frente, então se você é um dev trans pode se cadastrar no site, se você é uma empresa querendo trazer mais diversidade pro seu time, dê uma olhada nos devs cadastrados e se você quer ajudar a levar esse projeto pra frente se sinta livre a forkar o projeto e entrar em contato comigo :)
 

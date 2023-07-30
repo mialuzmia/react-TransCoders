@@ -27,6 +27,7 @@ const Portfolio = () => {
         const response = await axios.get(`https://api.github.com/users/${document.githubUsername}/repos`);
         setReposData(response.data);
 
+        setReposError(null)
         if (reposData.length == 0 ) {
           setReposError('Esse usuário não tem nenhum repositório.')
         }
@@ -67,10 +68,11 @@ const Portfolio = () => {
 
             <h2>Projetos:</h2>
 
-            {(reposData && reposData.length >=1 && document.githubUsername != null) ? <div className='repos__container'>
+           {(reposData && reposData.length >=1 && document.githubUsername != null) ? <div className='repos__container'>
               {reposData.map((repo) => <RepoCard reposData={repo} key={repo.id}/> )}
             </div> : <p className='error'>{reposError}</p>}
 
+           
             <Contact 
               email={document.emailContato} 
               linkedinURL={document.linkedinURL} 

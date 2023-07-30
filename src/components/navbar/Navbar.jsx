@@ -33,7 +33,7 @@ const Navbar = () => {
             </div>
 
             <div className='navbar__buttons-container'>
-              <SearchBar />
+              {/* <SearchBar /> */}
               
              {!user && <Link to='/signup'>
                 <Button text='Cadastro'/>

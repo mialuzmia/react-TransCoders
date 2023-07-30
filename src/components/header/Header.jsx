@@ -13,9 +13,11 @@ const Header = () => {
         <img className='header__title' src={logo} />
 
         <div className="header__text">
-          <span className="line-1">Um site de divulgação de desenvolvedores trans</span><br/>
+          <p>Um site de divulgação de desenvolvedores trans para inserção no mercado de trabalho.</p>
+          
+          {/* <span className="line-1">Um site de divulgação de desenvolvedores trans</span><br/>
 
-          <div className="line-2-wrapper"><span className="line-2">para inserção no mercado de trabalho.</span></div>
+          <div className="line-2-wrapper"><span className="line-2">para inserção no mercado de trabalho.</span></div> */}
         </div>
       </div>
 

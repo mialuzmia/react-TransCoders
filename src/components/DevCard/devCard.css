@@ -64,24 +64,41 @@
     width: 90%;
     height: 90%;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .devcard__title{
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     font-size: 1.4rem;
+}
+
+.devcard__bio-and-img{
+    display: flex;
+    gap: 1rem;
+    /* height: 60%; */
+
+
 }
 
 .devcard__text{
     font-size: 1.1rem;
     font-family: minecraft;
+    max-width: 65%;
+}
+
+.devcard__img-container{
+    display: flex;
+    align-items: flex-end;
 }
 
 .devcard__img{
+    width: 100%;
+
     max-width: 100px;
 
-    border-radius: 50%;
+    border-radius: 20%;
     overflow: hidden;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+
 }

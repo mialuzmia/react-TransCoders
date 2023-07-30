@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useDocument } from '../../hooks/useDocument'
 import RepoCard from '../../components/repoCard/RepoCard'
 import Slider from '../../components/slider/Slider'
+import Contact from '../../components/contact/Contact'
 
 const Portfolio = () => {
   const [reposData, setReposData] = useState(null)
@@ -61,19 +62,20 @@ const Portfolio = () => {
             
             <p className='potfolio__bio'>{document.bio}</p>
 
-            {/* <div>
-              <h2>Habilidades</h2>
-            </div> */}
             
-            <Slider items={document.languages}/>
+            {document.languages.length > 0 && <Slider items={document.languages}/>}
 
             <h2>Projetos:</h2>
 
-            {(reposData && reposData.length >=1) ? <div className='repos__container'>
+            {(reposData && reposData.length >=1 && document.githubUsername != null) ? <div className='repos__container'>
               {reposData.map((repo) => <RepoCard reposData={repo} key={repo.id}/> )}
             </div> : <p className='error'>{reposError}</p>}
 
-            {/* {reposError  && <p className='error'>{reposError}</p>} */}
+            <Contact 
+              email={document.emailContato} 
+              linkedinURL={document.linkedinURL} 
+              githubURL={document.githubURL}
+            /> 
           </>
         )}
       </div>

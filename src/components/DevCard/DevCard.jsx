@@ -4,9 +4,9 @@ import './devCard.css'
 const DevCard = ({ devInfo }) => {
 
   return (
-    <div class="devcard__container">
+    <div className="devcard__container">
 
-          <Link to={`/portfolio/${devInfo.id}`} class="devcard__content-container">
+          <Link to={`/portfolio/${devInfo.id}`} className="devcard__content-container">
 
               <div className='devcard__content'>
 

@@ -83,5 +83,55 @@ input, textarea {
   }
 
 
+/* responsividade da home */
+@media screen and (max-width: 1000px) {
+  .navbar__logo {
+    width: 28%; 
+  }
+}
+@media screen and (max-width: 800px) {
+  .navbar__links-container a {
+    font-size: 1.3rem;
+  }
+  .header__container{
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem 0 0 0;
+  }
+  .header-content__container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .header-img__container {
+    width: 100%;
+  }
+  .header__title {
+    width: 100%;
+  }
+  .header__text {
+    padding-left: 0.5rem;
+  }
+  .header__text p{
+    font-size: 0.8em;
+  }
+}
 
- 
+
+@media screen and (max-width: 650px) {
+  .navbar__logo {
+    width: 65%; 
+  }
+}
+
+/* .header-content__container {
+    width: 45%;
+  }
+  .header__title {
+    width: 100%;
+  }
+  .header__text p{
+    font-size: 0.8rem;
+  }
+  .header-img__container {
+    width: 50%;
+  } */

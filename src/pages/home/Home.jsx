@@ -5,8 +5,6 @@ const Home = () => {
   return (
     <div className='home__container'>
       <Header />
-      
-      {/* seção contando um sobre aqui */}
     </div>
   )
 }

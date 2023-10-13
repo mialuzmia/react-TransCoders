@@ -111,7 +111,7 @@ input, textarea {
   .header__text {
     padding-left: 0.5rem;
   }
-  .header__text p{
+  .header__text p, span{
     font-size: 0.8em;
   }
 }

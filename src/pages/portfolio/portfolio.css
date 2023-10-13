@@ -35,7 +35,7 @@
     justify-content: space-between;
     align-items: flex-end;
 
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding-top: 2rem;
 
     background-color: #6554AF;
@@ -60,7 +60,7 @@
     width: 20%;
     margin-left: 1rem;
     
-    border-radius: 2rem;
+    border-radius: 1rem;
     overflow: hidden;
 
 }

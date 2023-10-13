@@ -1,5 +1,7 @@
 import './header.css'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+
 
 
 import cat from '../../assets/cat2.svg'
@@ -49,7 +51,7 @@ const Header = () => {
         <img className='header__img' src={cat} alt="imagem de um desenho de um gato com roupa de astronauta"  />
       </div>
 
-      {screenSize.width <= 800 && <Button className="header__button" text="Ver página de devs"/>}
+      {screenSize.width <= 800 && <Link to='/devs'><Button className="header__button" text="Ver página de devs"/></Link>}
     </section>
   )
 }

@@ -17,7 +17,9 @@ const DevCard = ({ devInfo }) => {
                   <img src={devInfo.photoURL} alt={`foto de ${devInfo.displayName}`} className="devcard__img" />
 
                 </div>
-                <p className='devcard__text'>{ `${devInfo.bio.substring(0,120)}...` }</p>
+                {devInfo.bio.length > 0 && <p className='devcard__text'>{devInfo.bio.length >= 70 ? `${devInfo.bio.substring(0,70)}...` : devInfo.bio }</p>}
+                {devInfo.bio.length == 0 && <p className='devcard__text'>(Sem bio.)</p>}
+
               </div>
               </div>
           </Link>

@@ -1,12 +1,6 @@
 .profile-page__container{
     width: 100%;
-    /* max-width: 100%; */
     min-height: 90vh;
-
-    /* background-image: url('../../assets/galaxy1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat; */
-
     display: flex;
     align-items: center;
 
@@ -16,9 +10,6 @@
 .profile__container {
     color: var(--text-color);
     width: 50%;
-    /* position: sticky; */
-
-
     margin: 2rem auto;
     padding: 2.5rem;
 

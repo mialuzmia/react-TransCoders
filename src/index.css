@@ -83,7 +83,7 @@ input, textarea {
   }
 
 
-/* responsividade da home */
+/* home page responsiveness*/
 @media screen and (max-width: 1000px) {
   .navbar__logo {
     width: 28%; 
@@ -115,23 +115,88 @@ input, textarea {
     font-size: 0.8em;
   }
 }
-
-
 @media screen and (max-width: 650px) {
   .navbar__logo {
     width: 65%; 
   }
 }
 
-/* .header-content__container {
-    width: 45%;
+/* home page responsiveness */
+@media screen and (max-width: 1100px) {
+  .auth__container{
+      width: 70%;
   }
-  .header__title {
+}
+@media screen and (max-width: 800px) {
+  .auth__container {
+    width: 90%; 
+    padding: 1.4rem;
+  }
+  .auth-buttons__container{
+    gap: 1rem;
+  }
+  .auth-buttons__container  span{
+    font-size: .8rem;
+  }
+}
+
+/* profile page responsiveness*/
+@media screen and (max-width: 1100px) {
+  .profile__container{
+    width: 70%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .profile__container{
+    width: 90%;
+  }
+}
+
+/* devs page responsiveness*/
+@media screen and (max-width: 1100px) {
+  .devs__list-container{
+    width: 90%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .devs__list-container{
+    width: 99%;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
+    
+  }
+  .devcard__img{
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .devcard__text{
+    font-size: .82rem;
+  }
+  .devcard__img{
     width: 100%;
   }
-  .header__text p{
-    font-size: 0.8rem;
+}
+
+/* portfolio page responsiveness*/
+@media screen and (max-width: 500px) {
+  .portolio__container{
+    width: 95%;
   }
-  .header-img__container {
-    width: 50%;
-  } */
+  .portfolio__header-texts h1{  
+    font-size: 1.8rem;
+  }
+  .portfolio_image{
+    width: 30%;
+  }
+  .potfolio__bio{
+    font-size: 1rem;
+  }
+
+}
+@media screen and (max-width: 650px) {
+  .repos__container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

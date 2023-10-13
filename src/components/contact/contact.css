@@ -103,4 +103,5 @@
 .contact__right-container p{
     margin-top: 1rem;
     text-align: center;
+    word-wrap: break-word;
 }

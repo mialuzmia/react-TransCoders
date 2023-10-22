@@ -15,7 +15,7 @@ export const useLogin = () => {
         setIsPending(true)
         setSuccess(null)
 
-        // sign the use out
+        // sign the use in
         try {
             const response = await auth.signInWithEmailAndPassword(email, password)
 
@@ -29,7 +29,7 @@ export const useLogin = () => {
              // update online status
              await db.collection('users').doc(response.user.uid).update({ online: true })
 
-            // dispatch logout action
+            // dispatch login action
             dispatch({ type: 'LOGIN', payload: response.user })
 
             // update states

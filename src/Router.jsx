@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from "./hooks/useAuthContext"
 
 
-import Home from './pages/Home/Home'
+import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
 import Profile from './pages/profile/Profile'
